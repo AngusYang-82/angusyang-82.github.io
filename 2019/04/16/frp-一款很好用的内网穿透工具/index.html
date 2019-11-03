@@ -50,19 +50,19 @@
   };
 </script>
 
-  <meta name="description" content="前言实际开发过程中，我们往往希望将内网开发的服务或者程序，在公网能够管理和访问。介绍一种很好用的内网穿透工具 – frp 项目github地址   frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。   架构图 使用方法  具体参数说明请详见官方文档，本文仅提供示例以供参考根据对应的操">
+  <meta name="description" content="前言实际开发过程中，我们往往希望将内网开发的服务或者程序，在公网能够管理和访问。介绍一种很好用的内网穿透工具 – frp 项目github地址  frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。  架构图 使用方法  具体参数说明请详见官方文档，本文仅提供示例以供参考根据对应的操作系">
 <meta name="keywords" content="内网穿透,frp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="frp 一款好用的内网穿透工具">
 <meta property="og:url" content="http://yang-ops.blog/2019/04/16/frp-一款很好用的内网穿透工具/index.html">
 <meta property="og:site_name" content="AngusYang的Blog">
-<meta property="og:description" content="前言实际开发过程中，我们往往希望将内网开发的服务或者程序，在公网能够管理和访问。介绍一种很好用的内网穿透工具 – frp 项目github地址   frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。   架构图 使用方法  具体参数说明请详见官方文档，本文仅提供示例以供参考根据对应的操">
+<meta property="og:description" content="前言实际开发过程中，我们往往希望将内网开发的服务或者程序，在公网能够管理和访问。介绍一种很好用的内网穿透工具 – frp 项目github地址  frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。  架构图 使用方法  具体参数说明请详见官方文档，本文仅提供示例以供参考根据对应的操作系">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pic.yang-ops.blog/2019-11-03-architecture.png">
-<meta property="og:updated_time" content="2019-11-03T05:16:35.855Z">
+<meta property="og:updated_time" content="2019-11-03T13:46:16.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frp 一款好用的内网穿透工具">
-<meta name="twitter:description" content="前言实际开发过程中，我们往往希望将内网开发的服务或者程序，在公网能够管理和访问。介绍一种很好用的内网穿透工具 – frp 项目github地址   frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。   架构图 使用方法  具体参数说明请详见官方文档，本文仅提供示例以供参考根据对应的操">
+<meta name="twitter:description" content="前言实际开发过程中，我们往往希望将内网开发的服务或者程序，在公网能够管理和访问。介绍一种很好用的内网穿透工具 – frp 项目github地址  frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。  架构图 使用方法  具体参数说明请详见官方文档，本文仅提供示例以供参考根据对应的操作系">
 <meta name="twitter:image" content="http://pic.yang-ops.blog/2019-11-03-architecture.png">
 
 <link rel="canonical" href="http://yang-ops.blog/2019/04/16/frp-一款很好用的内网穿透工具/">
@@ -259,16 +259,60 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>实际开发过程中，我们往往希望将内网开发的服务或者程序，在公网能够管理和访问。<br>介绍一种很好用的内网穿透工具 – frp <a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">项目github地址</a></p>
 <blockquote>
-<blockquote>
 <p>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。</p>
-</blockquote>
 </blockquote>
 <h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><p><img src="http://pic.yang-ops.blog/2019-11-03-architecture.png" alt></p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><blockquote>
 <blockquote>
-<p>具体参数说明请详见官方文档，本文仅提供示例以供参考<br>根据对应的操作系统和架构，请在 <a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">release页面</a> 中下载相应最新版本的程序<br>将 frps 及 frps.ini 放到具有公网 IP 的机器上。<br>将 frpc 及 frpc.ini 放到处于内网环境的机器上。</p>
+<p>具体参数说明请详见官方文档，本文仅提供示例以供参考<br>根据对应的操作系统和架构，请在 <a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">release页面</a> 中下载相应最新版本的程序 <a href="https://github.com/fatedier/frp/blob/master/conf/frps_full.ini" target="_blank" rel="noopener">frps完整的配置文件</a> <a href="https://github.com/fatedier/frp/blob/master/conf/frpc_full.ini" target="_blank" rel="noopener">frpc完整的配置文件</a></p>
 </blockquote>
 </blockquote>
+<blockquote>
+<p>将 frps 及 frps.ini 放到具有公网 IP 的机器上。<br>将 frpc 及 frpc.ini 放到处于内网环境的机器上。</p>
+</blockquote>
+<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p>目标：将访问请求http,https穿透到内网机器上<br>所用服务器：</p>
+<ul>
+<li>公网机器: Aliyun（CentOS7）</li>
+<li>内网机器：公司开发用机（CentOS7）</li>
+</ul>
+<h3 id="公网机器设置："><a href="#公网机器设置：" class="headerlink" title="公网机器设置："></a>公网机器设置：</h3><ol>
+<li><p>下载程序，本文所使用的公网机器操作系统为CentOS7，您也可以根据自己的操作系统，选择对应的最新版本程序包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.1/frp_0.29.1_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压压缩包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf frp_0.29.1_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将二进制执行文件copy到/usr/sbin目录，并创建配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp frp_0.29.1_linux_amd64/frps /usr/sbin</span><br><span class="line">chmod +x /usr/sbin/frps</span><br><span class="line">touch /etc/frps.ini</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>vi /etc/frps.ini</code>，设置http端口为80，https端口为443</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># frps.ini</span></span><br><span class="line">[common]</span><br><span class="line"><span class="comment">#程序执行端口</span></span><br><span class="line">bind_port = 7000</span><br><span class="line">vhost_http_port = 80</span><br><span class="line">vhost_https_port = 443</span><br><span class="line"><span class="comment"># 设置 auth token，提升内网穿透安全等级(公网、内网机器token需设置一致的值)</span></span><br><span class="line">token = 123321</span><br><span class="line"><span class="comment"># 设置日志位置、日志等级</span></span><br><span class="line">log_file = /var/<span class="built_in">log</span>/frps.log</span><br><span class="line">log_level = info</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动frps</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup frps --config /etc/frps.ini&amp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>日志记录在 <code>/var/log/frps.log</code></p>
+</li>
+</ol>
+<h3 id="内网机器设置："><a href="#内网机器设置：" class="headerlink" title="内网机器设置："></a>内网机器设置：</h3><ol>
+<li><p>下载程序，本文所使用的公网机器操作系统为CentOS7，您也可以根据自己的操作系统，选择对应的最新版本程序包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.1/frp_0.29.1_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压压缩包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf frp_0.29.1_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将二进制执行文件copy到/usr/sbin目录，并创建配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp frp_0.29.1_linux_amd64/frpc /usr/sbin</span><br><span class="line">chmod +x /usr/sbin/frpc</span><br><span class="line">touch /etc/frpc.ini</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>vi /etc/frpc.ini</code>，假设 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口, 绑定自定义域名 <a href="http://www.yourdomain.com" target="_blank" rel="noopener">www.yourdomain.com</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">frpc.ini</span><br><span class="line">[common]</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line">[web_http]</span><br><span class="line"><span class="built_in">type</span> = http</span><br><span class="line">local_port = 80</span><br><span class="line">custom_domains = www.yourdomain.com</span><br><span class="line">[web_https]</span><br><span class="line"><span class="built_in">type</span> = https</span><br><span class="line">local_port = 443</span><br><span class="line">custom_domains = www.yourdomain.com</span><br><span class="line"><span class="comment"># 设置 auth token，提升内网穿透安全等级(公网、内网机器token需设置一致的值)</span></span><br><span class="line">token = 123321</span><br><span class="line"><span class="comment"># 设置日志位置、日志等级</span></span><br><span class="line">log_file = /var/<span class="built_in">log</span>/frpc.log</span><br><span class="line">log_level = info</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动frpc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup frps --config /etc/frpc.ini&amp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>日志记录在 <code>/var/log/frpc.log</code></p>
+</li>
+</ol>
 
     </div>
 
@@ -284,18 +328,6 @@
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2019/06/10/hello-world/" rel="prev" title="Hello World">
-                  Hello World <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
       </footer>
     
   </article>
@@ -333,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构图"><span class="nav-number">2.</span> <span class="nav-text">架构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">3.</span> <span class="nav-text">使用方法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构图"><span class="nav-number">2.</span> <span class="nav-text">架构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">3.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境说明"><span class="nav-number">4.</span> <span class="nav-text">环境说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公网机器设置："><span class="nav-number">4.1.</span> <span class="nav-text">公网机器设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内网机器设置："><span class="nav-number">4.2.</span> <span class="nav-text">内网机器设置：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -348,7 +380,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
